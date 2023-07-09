@@ -1,1 +1,8 @@
 .docker
+.vscode
+.devontainer
+./api/client.http
+.pdm-python
+__pycache__
+.pdm-build
+.venv

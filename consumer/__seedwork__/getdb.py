@@ -1,5 +1,5 @@
 from sqlalchemy import sessionmaker, make_url
-from src.config import settings
+from consumer.config import settings
 
 
 def create_sqlalchemy_conn(session_args):

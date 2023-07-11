@@ -1,0 +1,21 @@
+
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+  { name = "Gustavo Figueiredo", email = "gustavo.figueiredo@fast2mine.com" },
+]
+dependencies = [
+  "fastapi>=0.100.0",
+  "uvicorn>=0.22.0",
+  "pydantic>=2.0.2",
+  "aiokafka>=0.8.1",
+  "pydantic-settings>=2.0.1",
+  "sqlalchemy>=2.0.18",
+]
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[tool.pdm.scripts]
+start = "uvicorn main:app"

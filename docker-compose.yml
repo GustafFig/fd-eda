@@ -78,7 +78,7 @@ services:
 
   consumer:
     build:
-      dockerfile: ./consumer.Dockerfile
+      dockerfile: ./consumer/Dockerfile
       context: .
     ports:
       - "3303:3303"

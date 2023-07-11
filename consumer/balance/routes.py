@@ -1,7 +1,7 @@
-from src.main import app
+from consumer.main import app
 from sqlalchemy import Session
 from fastapi import Depends
-from src.__seedwork__.getdb import get_db
+from consumer.__seedwork__.getdb import get_db
 
 
 @app.get("/balances")

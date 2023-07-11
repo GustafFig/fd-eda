@@ -1,11 +1,12 @@
 from aiokafka import AIOKafkaConsumer
 import os
 
+from config import Settings
 
 
-async def consume():
-    KAFKA_TOPIC = os.getenv('KAFKA_TOPIC', 'balances')
-    KAFKA_BOOTSTRAP_SERVERS = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'kafka:29092')
+async def consume(settings: Settings):
+    KAFKA_TOPIC = settings.kafka_topic
+    KAFKA_BOOTSTRAP_SERVERS = settings.kafka_bootstrap_server
     consumer = AIOKafkaConsumer(KAFKA_TOPIC, bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS)
     await consumer.start()
     try:

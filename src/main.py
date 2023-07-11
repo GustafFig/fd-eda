@@ -6,15 +6,18 @@ Inspired by
 import asyncio
 from contextlib import asynccontextmanager
 import logging
+
 from fastapi import FastAPI
 import uvicorn
-from balance_consumer import consume
+
+from balance.consumer import consume
+from config import settings
 
 
 @asynccontextmanager
 async def lifespan(cur_app: FastAPI):
     log.info(f'Initializing API ...')
-    task = asyncio.create_task(consume())
+    task = asyncio.create_task(consume(settings))
     yield
     task.cancel()
 

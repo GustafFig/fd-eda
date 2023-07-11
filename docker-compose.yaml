@@ -2,10 +2,15 @@ version: '3'
 
 services:
   goapp: 
-    build: .
+    build:
+      dockerfile: ./goapp/Dockerfile
+      context: .
     platform: linux/amd64
+    depends_on:
+      - mysql
     volumes:
-      - .:/app
+      - ./goapp:/app
+    command: go run cmd/walletcore/main.go
     ports:
       - 8080:8080
 

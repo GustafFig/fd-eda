@@ -6,7 +6,7 @@ from sqlalchemy.engine.url import make_url
 
 
 class Settings(BaseSettings):
-    database_conn_str: str
+    database_conn_str: str = "sqlite:///db.sqlite3"
     kafka_topic: str = "balances"
     kafka_bootstrap_server: str = "kafka:29092"
 

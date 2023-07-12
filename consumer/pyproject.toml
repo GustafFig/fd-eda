@@ -1,10 +1,10 @@
 
 [project]
-name = ""
-version = ""
+name = "consumer"
+version = "0.1.0"
 description = ""
 authors = [
-  { name = "Gustavo Figueiredo", email = "gustavo.figueiredo@fast2mine.com" },
+    { name = "Gustavo Figueiredo", email = "gustavohmfigueiredo@gmail.com" },
 ]
 dependencies = [
     "fastapi>=0.100.0",
@@ -15,8 +15,14 @@ dependencies = [
     "sqlalchemy>=2.0.18",
 ]
 requires-python = ">=3.10"
-license = { text = "MIT" }
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [tool.pdm.scripts]
-start = "python -m uvicorn main:app"
+start = "python -m uvicorn --host 0.0.0.0 --port 8000 --log-level debug main:app"
 dev = "python -m uvicorn --reload --host 0.0.0.0 --port 8000 --log-level debug main:app"
+

@@ -8,8 +8,9 @@ services:
     platform: linux/amd64
     depends_on:
       - mysql
+      - kafka
     volumes:
-      - ./goapp:/app
+      - ./goapp:/app/goapp
     command: go run cmd/walletcore/main.go
     ports:
       - 8080:8080
@@ -83,6 +84,6 @@ services:
     ports:
       - "3303:8000"
     volumes:
-      - .:/home/python/app/
-    environment:
-      KAFKA_TOPIC: balances
+      - ./consumer:/home/python/app/consumer
+    depends_on:
+      - kafka

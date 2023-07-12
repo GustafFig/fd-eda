@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  goapp:
+    restart: "on-failure"
+    command: go run cmd/walletcore/main.go
+
+  mysql:
+    restart: "on-failure"
+
+  zookeeper:
+    restart: "on-failure"
+
+  kafka:
+    restart: "on-failure"
+
+  consumer:
+    restart: "on-failure"

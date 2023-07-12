@@ -1,0 +1,11 @@
+### in the container
+GET http://localhost:8080/balances/{} HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@j.com"
+}
+
+### out of the container
+GET http://localhost:3303/balances/0611a0f6-da78-4431-8dca-6931ded4a721 http/1.1

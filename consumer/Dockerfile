@@ -6,7 +6,9 @@ RUN apt update && apt install -y --no-install-recommends \
                                   curl \
                                   wget \
                                   vim \
-                                  gcc
+                                  gcc \
+                                  sudo \
+                                  sqlite3
                                   
 
 # cria um usuário chamado python

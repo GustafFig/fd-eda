@@ -7,3 +7,4 @@ __pycache__
 .pdm-build
 .venv
 .env
+consumer/sql_app.db

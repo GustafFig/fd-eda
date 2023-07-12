@@ -3,8 +3,8 @@ from database import Base
 import sqlalchemy as sa
 
 
-class Balance(Base):
-    __tablename__ = "balances"
+class Account(Base):
+    __tablename__ = "accounts"
 
     id = sa.Column(sa.String, primary_key=True)
     value = sa.Column(

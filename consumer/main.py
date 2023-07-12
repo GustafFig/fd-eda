@@ -13,6 +13,16 @@ import uvicorn
 from balance.consumer import consume
 from config import settings
 
+from balance.routes import router as balance_router
+from database import Base, SessionLocal, engine
+
+
+Base.metadata.create_all(bind=engine)
+
+# initialize logger
+logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+log = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(cur_app: FastAPI):
@@ -21,14 +31,13 @@ async def lifespan(cur_app: FastAPI):
     yield
     task.cancel()
 
-
-# instantiate the API
 app = FastAPI(lifespan=lifespan)
 
-# initialize logger
-logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
-log = logging.getLogger(__name__)
+app.include_router(balance_router)
+
+@app.get("balances/{balance_id}")
+def get_balance(balance_id: str):
+    return 
 
 
 @app.get("/")
@@ -37,4 +46,4 @@ async def root():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=3303)

@@ -81,7 +81,7 @@ services:
       dockerfile: ./consumer/Dockerfile
       context: .
     ports:
-      - "3303:3303"
+      - "3303:8000"
     volumes:
       - .:/home/python/app/
     environment:

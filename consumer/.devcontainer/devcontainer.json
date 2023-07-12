@@ -21,7 +21,8 @@
                 "ms-python.python",
                 "eamodio.gitlens",
                 "humao.rest-client",
-                "codeium.codeium"
+                "codeium.codeium",
+                "ms-python.black-formatter"
             ],
             "settings": {
                 "python.pythonPath": "/usr/local/bin/python"

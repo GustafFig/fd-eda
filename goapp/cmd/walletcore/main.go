@@ -42,6 +42,11 @@ func main() {
 	clientDb := database.NewClientDB(db)
 	accountDb := database.NewAccountDB(db)
 
+	populator := database.NewPopulator(*accountDb, *clientDb)
+	populator.CleanDb()
+	populator.CreateDB()
+	populator.Populate()
+
 	ctx := context.Background()
 	uow := uow.NewUow(ctx, db)
 
